@@ -1,8 +1,16 @@
 # Use NVIDIA NGC PyTorch base image
 FROM nvcr.io/nvidia/pytorch:24.05-py3
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Set working directory
 WORKDIR /workspace
+
+RUN apt update && apt install -y \
+    nodejs \
+    npm \
+    #ln -s /usr/bin/nodejs /usr/bin/node \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install JupyterLab and common extensions
 RUN pip install --upgrade pip && \
