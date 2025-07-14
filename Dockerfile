@@ -1,4 +1,5 @@
 # Use NVIDIA NGC PyTorch base image
+
 FROM nvcr.io/nvidia/pytorch:24.05-py3
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -27,3 +28,4 @@ EXPOSE 8888
 
 # Default command: start JupyterLab
 CMD ["jupyter", "lab", "--allow-root"]
+#CMD ["jupyter", "lab", "--allow-root", "--config=/root/.jupyter/jupyter_lab_config.py"]

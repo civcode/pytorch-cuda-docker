@@ -1,7 +1,10 @@
-docker run --gpus all \
+docker run \
+    --gpus all \
+    --runtime=nvidia \
     --ipc=host \
     --ulimit memlock=-1 \
     --ulimit stack=67108864 \
+    --shm-size=1g \
     -it --rm \
     -p 8888:8888 \
     -u $(id -u):$(id -g) \
